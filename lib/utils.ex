@@ -1,18 +1,5 @@
 defmodule Utils do
   @moduledoc """
-  Documentation for `Utils`.
+  This library is a collection of functions that are used in many of our projects
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Utils.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
