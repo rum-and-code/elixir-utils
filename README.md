@@ -1,4 +1,4 @@
-# Utils
+# Elixir Utils
 
 This library is a collection of various utility modules that we want to reuse across all of our Elixir projects.
 
