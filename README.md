@@ -1,21 +1,13 @@
 # Utils
 
-**TODO: Add description**
+This library is a collection of various utility modules that we want to reuse across all of our Elixir projects.
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_utils` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:elixir_utils, "~> 0.1.0"}
+    {:elixir_utils, git: "git@github.com:rum-and-code/elixir-utils.git"}
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/elixir_utils>.
-
