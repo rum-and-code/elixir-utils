@@ -7,7 +7,9 @@ defmodule Utils.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases(),
+      preferred_cli_env: [pipeline: :test]
     ]
   end
 
@@ -19,8 +21,14 @@ defmodule Utils.MixProject do
 
   defp deps do
     [
-      {:timex, "~> 3.7.11"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:timex, "~> 3.7.11"}
+    ]
+  end
+
+  defp aliases do
+    [
+      pipeline: ["format --check-formatted", "compile --warnings-as-errors", "test", "credo"]
     ]
   end
 end

@@ -8,7 +8,7 @@ defmodule Result do
   This module is a collection of function for interacting with such tuples, which we tend to do often.
 
   For example, we can reduce the following with statement to a simple series of Result pipes:
-  
+
     ```elixir
     with {:ok, user} <- Users.get_user(user_id),
          {:ok, user} <- Users.update_user(user),
@@ -96,7 +96,9 @@ defmodule Result do
   Throws an error if :error
   """
   def unwrap!({:ok, value}), do: value
-  def unwrap!({:error, _} = error), do: raise(ArgumentError, message: "Tried to unwrap error value: #{inspect(error)}")
+
+  def unwrap!({:error, _} = error),
+    do: raise(ArgumentError, message: "Tried to unwrap error value: #{inspect(error)}")
 
   @doc """
   Returns the wrapped value if :ok.
@@ -105,3 +107,4 @@ defmodule Result do
   @spec unwrap_or(t(), term()) :: term()
   def unwrap_or({:ok, value}, _), do: value
   def unwrap_or({:error, _}, default), do: default
+end

@@ -16,8 +16,11 @@ defmodule ResultTest do
   end
 
   describe("Result.tap_error/2") do
-    test("it runs an :error result through the given function and returns the result untouched") do
-      {:error, value} = Result.tap_error({:error, 1}, fn val -> send(self(), {:called_with, val}) end)
+    test(
+      "it runs an :error result through the given function and returns the result untouched"
+    ) do
+      {:error, value} =
+        Result.tap_error({:error, 1}, fn val -> send(self(), {:called_with, val}) end)
 
       assert value == 1
       assert_received {:called_with, 1}
