@@ -8,7 +8,7 @@ defmodule Utils.DateTime do
   By truncating to the second, we avoid potential issues with postgres.
   """
   def now, do: NaiveDateTime.truncate(NaiveDateTime.utc_now(), :second)
-  
+
   @doc """
   Returns the current date and time in a given timezone, truncated to the second.
   By truncating to the second, we avoid potential issues with postgres.
@@ -73,4 +73,3 @@ defmodule Utils.DateTime do
     Timex.diff(today, date, :years)
   end
 end
-
