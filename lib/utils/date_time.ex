@@ -46,9 +46,17 @@ defmodule Utils.DateTime do
   Parses a date string into a DateTime struct using the provided format.
   If no format is provided, the "YYYY-MM-DD" format is used by default.
   If the date string is nil, nil is returned.
+
+  ## Examples
+
+    iex> Utils.DateTime.parse("2023-04-27")
+    ~N[2023-04-27 00:00:00]
+
+    iex> Utils.DateTime.parse("2023-04-27", "{YYYY}-{0M}-{0D}")
+    ~N[2023-04-27 00:00:00]
   """
   @spec parse(String.t(), String.t()) :: DateTime.t() | nil
-  def parse(date, format \\ "{YYYY}-{0M}-{0D}}")
+  def parse(date, format \\ "{YYYY}-{0M}-{0D}")
 
   def parse(nil, _), do: nil
   def parse(date, format), do: Timex.parse!(date, format)
