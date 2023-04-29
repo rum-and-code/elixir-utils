@@ -1,4 +1,6 @@
 defmodule Utils.DateTime do
+  import Utils.Guards
+
   @moduledoc """
   This module contains functions related to date and time
   """
@@ -58,7 +60,7 @@ defmodule Utils.DateTime do
   @spec parse(String.t(), String.t()) :: DateTime.t() | nil
   def parse(date, format \\ "{YYYY}-{0M}-{0D}")
 
-  def parse(nil, _), do: nil
+  def parse(date, _) when is_blank(date), do: nil
   def parse(date, format), do: Timex.parse!(date, format)
 
   @doc """
