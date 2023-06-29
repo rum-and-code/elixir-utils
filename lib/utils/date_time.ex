@@ -80,4 +80,12 @@ defmodule Utils.DateTime do
   def age(today, date) do
     Timex.diff(today, date, :years)
   end
+
+  @doc """
+  Returns the new converted date to the given timezone offset.
+  """
+  @spec age(DateTime.t(), integer()) :: DateTime.t()
+  def convert_to_timezone(date, timezone_offset) do
+    Timex.shift(date, seconds: timezone_offset)
+  end
 end
