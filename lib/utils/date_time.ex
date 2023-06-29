@@ -84,7 +84,7 @@ defmodule Utils.DateTime do
   @doc """
   Returns the new converted date to the given timezone offset.
   """
-  @spec age(DateTime.t(), integer()) :: DateTime.t()
+  @spec convert_to_timezone(DateTime.t(), integer()) :: DateTime.t()
   def convert_to_timezone(date, timezone_offset) do
     Timex.shift(date, seconds: timezone_offset)
   end
