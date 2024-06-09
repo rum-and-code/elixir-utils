@@ -79,12 +79,20 @@ defmodule Utils.ValidationTest do
       assert Utils.Validation.email("abcdefghijklmnopqrstuvwxyz0123456789@rumandcode.io")
     end
 
+    test "its 'local part' can support any upcased alpha characters" do
+      assert Utils.Validation.email("ABCDEFGHIJKLMNOPQRSTUVQXYZ@rumandcode.io")
+    end
+
     test "its 'local part' can support any of a specific handful of special characters" do
       assert Utils.Validation.email("!#$%&'*+./=?^_`{|}~-@rumandcode.io")
     end
 
     test "its 'domain part' can support any alphanumeric character" do
       assert Utils.Validation.email("foobar@abcdefghijklmnopqrstuvwxyz0123456789.io")
+    end
+
+    test "its 'domain part' can support any upcased alpha characters" do
+      assert Utils.Validation.email("foobar@ABCDEFGHIJKLMNOPQRSTUVQXYZ.IO")
     end
 
     test "its 'domain part' can only support the '-' as its special character, as long as it is in between alphanumeric characters" do
